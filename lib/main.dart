@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_animation/implicit_animation/animated_opacity.dart';
+import 'package:flutter_animation/implicit_animations/animated_opacity.dart';
 
 import 'animation_basics.dart';
-import 'implicit_animation/animated_align.dart';
-import 'implicit_animation/animated_container.dart';
-import 'implicit_animation/animated_physical_model.dart';
-import 'implicit_animation/animated_position.dart';
-import 'implicit_animation/animated_position_direction.dart';
-import 'implicit_animation/animated_text_style.dart';
+import 'explicit_animations/positioned_transition.dart';
+import 'explicit_animations/size_transition.dart';
+import 'implicit_animations/animated_align.dart';
+import 'implicit_animations/animated_container.dart';
+import 'implicit_animations/animated_physical_model.dart';
+import 'implicit_animations/animated_position.dart';
+import 'implicit_animations/animated_position_direction.dart';
+import 'implicit_animations/animated_text_style.dart';
 
 void main() {
   runApp(const MainApp());
@@ -19,8 +21,9 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Animations',
-      theme: ThemeData(primarySwatch: Colors.orange),
+      theme: ThemeData(primarySwatch: Colors.indigo),
       home: Scaffold(
           appBar: AppBar(title: const Text('Animations')),
           body: Builder(builder: (context) {
@@ -29,22 +32,26 @@ class MainApp extends StatelessWidget {
                 physics: const BouncingScrollPhysics(),
                 padding: const EdgeInsets.all(16.0),
                 children: [
-                  _buildItem(
+                  _buildImplicitItem(
                       context, 'Animation Basics', const AnimationBasicsPage()),
-                  _buildItem(
+                  _buildImplicitItem(
                       context, 'Animated Align', const AnimatedAlignPage()),
-                  _buildItem(context, 'Animated Container',
+                  _buildImplicitItem(context, 'Animated Container',
                       const AnimatedContainerPage()),
-                  _buildItem(context, 'Animated Text Style',
+                  _buildImplicitItem(context, 'Animated Text Style',
                       const AnimatedTextStylePage()),
-                  _buildItem(
+                  _buildImplicitItem(
                       context, "Animated Opacity", const AnimatedOpacityPage()),
-                  _buildItem(context, "Animated Physical Model",
+                  _buildImplicitItem(context, "Animated Physical Model",
                       const AnimatedPhysicalModelPage()),
-                  _buildItem(context, "Animated Position",
+                  _buildImplicitItem(context, "Animated Position",
                       const AnimatedPositionPage()),
-                  _buildItem(context, "Animated Position DirectionPage",
-                      const AnimatedPositionDirectionPage())
+                  _buildImplicitItem(context, "Animated Position Direction",
+                      const AnimatedPositionDirectionPage()),
+                  _buildExplicitItem(context, "Positioned Transition",
+                      const PositionedTransitionPage()),
+                  _buildExplicitItem(
+                      context, "Size Transition", const SizeTransitionPage())
                 ],
               ),
             );
@@ -52,12 +59,30 @@ class MainApp extends StatelessWidget {
     );
   }
 
-  Widget _buildItem(
+  Widget _buildImplicitItem(
     BuildContext context,
     String s,
     Widget next,
   ) {
     return ElevatedButton(
+      child: Text(s),
+      onPressed: () {
+        Navigator.of(context).push(
+          MaterialPageRoute(
+            builder: (context) => next,
+          ),
+        );
+      },
+    );
+  }
+
+  Widget _buildExplicitItem(
+    BuildContext context,
+    String s,
+    Widget next,
+  ) {
+    return ElevatedButton(
+      style: ElevatedButton.styleFrom(backgroundColor: Colors.teal),
       child: Text(s),
       onPressed: () {
         Navigator.of(context).push(
