@@ -3,6 +3,7 @@ import 'package:flutter_animation/implicit_animations/animated_opacity.dart';
 
 import 'animation_basics.dart';
 import 'explicit_animations/positioned_transition.dart';
+import 'explicit_animations/rotation_transition.dart';
 import 'explicit_animations/size_transition.dart';
 import 'implicit_animations/animated_align.dart';
 import 'implicit_animations/animated_container.dart';
@@ -51,7 +52,9 @@ class MainApp extends StatelessWidget {
                   _buildExplicitItem(context, "Positioned Transition",
                       const PositionedTransitionPage()),
                   _buildExplicitItem(
-                      context, "Size Transition", const SizeTransitionPage())
+                      context, "Size Transition", const SizeTransitionPage()),
+                  _buildExplicitItem(context, "Rotation Transition",
+                      const RotationTransitionPage())
                 ],
               ),
             );
