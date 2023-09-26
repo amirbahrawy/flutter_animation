@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animation/implicit_animations/animated_opacity.dart';
+import 'package:flutter_animation/page_transitions/new_page.dart';
+import 'package:flutter_animation/page_transitions/page_fade_transition.dart';
 
 import 'animation_basics.dart';
 import 'explicit_animations/animated_builder.dart';
@@ -64,6 +66,10 @@ class MainApp extends StatelessWidget {
                       context, "Fade Transition", const FadeTransitionPage()),
                   _buildExplicitItem(
                       context, "Tween Builder", const TweenBuilderPage()),
+                  _buildPageTransitionItem(
+                      "Page Fade Transition",
+                      () => Navigator.of(context)
+                          .push(PageFadeTransition(page: const NewPage()))),
                 ],
               ),
             );
@@ -92,5 +98,11 @@ class MainApp extends StatelessWidget {
         child: Text(s),
         onPressed: () => Navigator.of(context)
             .push(MaterialPageRoute(builder: (context) => next)),
+      );
+  Widget _buildPageTransitionItem(String s, Function() onPressed) =>
+      ElevatedButton(
+        style: ElevatedButton.styleFrom(backgroundColor: Colors.deepPurple),
+        onPressed: onPressed,
+        child: Text(s),
       );
 }
