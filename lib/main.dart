@@ -1,5 +1,3 @@
-import 'dart:js';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_animation/implicit_animations/animated_opacity.dart';
 
@@ -9,6 +7,7 @@ import 'explicit_animations/fade_transition.dart';
 import 'explicit_animations/positioned_transition.dart';
 import 'explicit_animations/rotation_transition.dart';
 import 'explicit_animations/size_transition.dart';
+import 'explicit_animations/tween_builder.dart';
 import 'implicit_animations/animated_align.dart';
 import 'implicit_animations/animated_container.dart';
 import 'implicit_animations/animated_physical_model.dart';
@@ -62,7 +61,9 @@ class MainApp extends StatelessWidget {
                   _buildExplicitItem(
                       context, "Animated Builder", const AnimatedBuilderPage()),
                   _buildExplicitItem(
-                      context, "Fade Transition", const FadeTransitionPage())
+                      context, "Fade Transition", const FadeTransitionPage()),
+                  _buildExplicitItem(
+                      context, "Tween Builder", const TweenBuilderPage()),
                 ],
               ),
             );
