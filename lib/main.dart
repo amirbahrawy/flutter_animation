@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animation/implicit_animations/animated_opacity.dart';
+import 'package:flutter_animation/more_animation/custom_painter_animation.dart';
+import 'package:flutter_animation/more_animation/lottie_animation.dart';
 import 'package:flutter_animation/page_transitions/new_page.dart';
 import 'package:flutter_animation/page_transitions/page_fade_transition.dart';
 
@@ -80,6 +82,22 @@ class MainApp extends StatelessWidget {
                       "Page Mix Size Fade Transition",
                       () => Navigator.of(context).push(
                           PageMixSizeFadeTransition(page: const NewPage()))),
+                  ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.deepOrange),
+                    onPressed: () => Navigator.of(context).push(
+                        MaterialPageRoute(
+                            builder: (context) => const CustomPainterPage())),
+                    child: const Text("Custom Painter"),
+                  ),
+                  ElevatedButton(
+                    style:
+                        ElevatedButton.styleFrom(backgroundColor: Colors.red),
+                    onPressed: () => Navigator.of(context).push(
+                        MaterialPageRoute(
+                            builder: (context) => const LottieAnimationPage())),
+                    child: const Text("Lottie Animation"),
+                  ),
                 ],
               ),
             );
