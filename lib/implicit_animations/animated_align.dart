@@ -31,18 +31,15 @@ class _AnimatedAlignPageState extends State<AnimatedAlignPage> {
           child: SizedBox(
             height: 100,
             width: 100,
-            child: Image.asset(
-              'assets/images/tom.png',
-            ),
+            child: Image.asset('assets/images/tom.png'),
           ),
         ),
       ]),
       floatingActionButton: FloatingActionButton(
         child: const Icon(Icons.play_arrow),
         onPressed: () {
-          setState(() {
-            _jerryAlign += 1;
-          });
+          _jerryAlign += 1;
+          setState(() {});
         },
       ),
     );

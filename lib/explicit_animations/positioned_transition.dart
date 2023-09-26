@@ -37,6 +37,12 @@ class _PositionedTransitionPageState extends State<PositionedTransitionPage>
   }
 
   @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text('Positioned Transition')),
@@ -86,11 +92,5 @@ class _PositionedTransitionPageState extends State<PositionedTransitionPage>
         },
       ),
     );
-  }
-
-  @override
-  void dispose() {
-    _controller.dispose();
-    super.dispose();
   }
 }

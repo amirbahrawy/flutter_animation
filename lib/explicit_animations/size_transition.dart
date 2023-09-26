@@ -31,6 +31,12 @@ class _SizeTransitionPageState extends State<SizeTransitionPage>
   }
 
   @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text('Size Transition')),

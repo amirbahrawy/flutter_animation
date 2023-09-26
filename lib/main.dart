@@ -1,7 +1,11 @@
+import 'dart:js';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_animation/implicit_animations/animated_opacity.dart';
 
 import 'animation_basics.dart';
+import 'explicit_animations/animated_builder.dart';
+import 'explicit_animations/fade_transition.dart';
 import 'explicit_animations/positioned_transition.dart';
 import 'explicit_animations/rotation_transition.dart';
 import 'explicit_animations/size_transition.dart';
@@ -54,7 +58,11 @@ class MainApp extends StatelessWidget {
                   _buildExplicitItem(
                       context, "Size Transition", const SizeTransitionPage()),
                   _buildExplicitItem(context, "Rotation Transition",
-                      const RotationTransitionPage())
+                      const RotationTransitionPage()),
+                  _buildExplicitItem(
+                      context, "Animated Builder", const AnimatedBuilderPage()),
+                  _buildExplicitItem(
+                      context, "Fade Transition", const FadeTransitionPage())
                 ],
               ),
             );
@@ -66,34 +74,22 @@ class MainApp extends StatelessWidget {
     BuildContext context,
     String s,
     Widget next,
-  ) {
-    return ElevatedButton(
-      child: Text(s),
-      onPressed: () {
-        Navigator.of(context).push(
-          MaterialPageRoute(
-            builder: (context) => next,
-          ),
-        );
-      },
-    );
-  }
+  ) =>
+      ElevatedButton(
+        child: Text(s),
+        onPressed: () => Navigator.of(context)
+            .push(MaterialPageRoute(builder: (context) => next)),
+      );
 
   Widget _buildExplicitItem(
     BuildContext context,
     String s,
     Widget next,
-  ) {
-    return ElevatedButton(
-      style: ElevatedButton.styleFrom(backgroundColor: Colors.teal),
-      child: Text(s),
-      onPressed: () {
-        Navigator.of(context).push(
-          MaterialPageRoute(
-            builder: (context) => next,
-          ),
-        );
-      },
-    );
-  }
+  ) =>
+      ElevatedButton(
+        style: ElevatedButton.styleFrom(backgroundColor: Colors.teal),
+        child: Text(s),
+        onPressed: () => Navigator.of(context)
+            .push(MaterialPageRoute(builder: (context) => next)),
+      );
 }
