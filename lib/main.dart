@@ -20,6 +20,8 @@ import 'implicit_animations/animated_position_direction.dart';
 import 'implicit_animations/animated_text_style.dart';
 import 'page_transitions/page_mix_size_fade_transition.dart';
 import 'page_transitions/page_size_transition.dart';
+import 'page_transitions/page_scale_transition.dart';
+import 'page_transitions/page_slide_transition.dart';
 
 void main() {
   runApp(const MainApp());
@@ -74,6 +76,14 @@ class MainApp extends StatelessWidget {
                       "Page Fade Transition",
                       () => Navigator.of(context)
                           .push(PageFadeTransition(page: const NewPage()))),
+                  _buildPageTransitionItem(
+                      "Page Scale Transition",
+                      () => Navigator.of(context)
+                          .push(PageScaleTransition(page: const NewPage()))),
+                  _buildPageTransitionItem(
+                      "Page Slide Transition",
+                      () => Navigator.of(context)
+                          .push(PageSlideTransition(page: const NewPage()))),
                   _buildPageTransitionItem(
                       "Page Size Transition",
                       () => Navigator.of(context)
