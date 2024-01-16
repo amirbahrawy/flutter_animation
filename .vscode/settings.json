@@ -1,4 +1,13 @@
 {
   "cSpell.words": ["LTRB"],
-  "dart.flutterSdkPath": "/Users/amirbahrawy/fvm/versions/3.10.6"
+  "dart.flutterSdkPath": ".fvm/flutter_sdk",
+  "dart.flutterSdkPaths": ["/Users/hp/fvm/versions"],
+  // Remove .fvm files from search
+  "search.exclude": {
+    "**/.fvm": true
+  },
+  // Remove from file watching
+  "files.watcherExclude": {
+    "**/.fvm": true
+  }
 }
